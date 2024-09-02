@@ -10,12 +10,12 @@
       class="rounded-xl ma-12 text-center"
     >
       <form @submit.prevent="LoginData">
-        <input 
-          class="input" 
-          name="email" 
-          type="email" 
+        <input
+          class="input"
+          name="email"
+          type="email"
           v-model="user.email"
-          placeholder="Email" 
+          placeholder="Email"
         />
         <input
           class="input"
@@ -24,13 +24,14 @@
           v-model="user.password"
           placeholder="Password"
         />
-        <input 
-          class="submit" 
+        <input
+          class="submit"
           value="Sign In"
-          style="color: aliceblue" 
-          type="submit" 
+          style="color: aliceblue"
+          type="submit"
         />
       </form>
+      <v-text style="margin-top: 5px;">Don't have an account?<a href="/Signup">Sign Up</a></v-text>
     </v-card>
   </v-sheet>
 </template>
@@ -49,33 +50,33 @@ export default {
     };
   },
   methods: {
-  LoginData() {
-    axios
-      .post("http://127.0.0.1:8000/api/login", this.user)
-      .then(({ data }) => {
-        if (data.status) {
-          alert("Your sign-in was successful");
-          console.log("About to navigate to home");
-          this.$router.push({ name: 'Myaccount' });
-          console.log("Navigation completed");
-        } else {
-          alert("Sign-in failed: " + data.message);
-        }
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.error('Server response error:', err.response.data);
-          alert("Error: " + err.response.data.message);
-        } else if (err.request) {
-          console.error('No response received:', err.request);
-          alert("No response from the server. Please try again later.");
-        } else {
-          console.error('Error in request setup:', err.message);
-          alert("Error in request. Please try again.");
-        }
-      });
+    LoginData() {
+      axios
+        .post("http://127.0.0.1:8000/api/login", this.user)
+        .then(({ data }) => {
+          if (data.status) {
+            alert("Your sign-in was successful");
+            console.log("About to navigate to home");
+            this.$router.push({ name: "Myaccount" });
+            console.log("Navigation completed");
+          } else {
+            alert("Sign-in failed: " + data.message);
+          }
+        })
+        .catch((err) => {
+          if (err.response) {
+            console.error("Server response error:", err.response.data);
+            alert("Error: " + err.response.data.message);
+          } else if (err.request) {
+            console.error("No response received:", err.request);
+            alert("No response from the server. Please try again later.");
+          } else {
+            console.error("Error in request setup:", err.message);
+            alert("Error in request. Please try again.");
+          }
+        });
+    },
   },
-},
 };
 </script>
 
@@ -99,4 +100,3 @@ export default {
   background-color: #000000;
 }
 </style>
-

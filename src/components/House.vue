@@ -1,23 +1,41 @@
 <template>
   <v-container class="d-flex flex-column align-center justify-center">
     <form @submit.prevent="submitHouse">
-      <select v-model="house.county" name="county" class="select" id="county">
-        <option value="" disabled>Select a County</option>
-        <option value="Machakos">Machakos</option>
-        <option value="Nairobi">Nairobi</option>
-        <option value="Mombasa">Mombasa</option>
-        <option value="Kiambu">Kiambu</option>
-      </select>
-      <input
-        v-model="house.coordinates"
-        class="input"
-        name="coordinates"
-        type="text"
-        placeholder="Google Maps Co-ordinates"
-      />
-      <v-text class="text-center">
-        The map below should show the accurate location of your home:
-      </v-text>
+      <v-container>
+        <v-text style="margin-left: 24px">House Location:</v-text>
+        <v-card
+          class="bg-grey-lighten-2 rounded-xl ma-8 pa-1"
+          variant="outlined"
+        >
+          <v-container
+            style="display: flex; flex-direction: column; align-items: center"
+          >
+            <select
+              v-model="house.county"
+              name="county"
+              class="select"
+              id="county"
+            >
+              <option value="" disabled>Select a County</option>
+              <option value="Machakos">Machakos</option>
+              <option value="Nairobi">Nairobi</option>
+              <option value="Mombasa">Mombasa</option>
+              <option value="Kiambu">Kiambu</option>
+            </select>
+            <input
+              v-model="house.coordinates"
+              class="input"
+              name="coordinates"
+              type="text"
+              placeholder="Google Maps Co-ordinates"
+            />
+          </v-container>
+        </v-card>
+
+        <v-text class="text-center" style="margin-left: 24px">
+          The map below should show the accurate location of your home:
+        </v-text>
+      </v-container>
 
       <v-container style="text-align: center; margin-left: 20px">
         <v-text>House details</v-text>
@@ -25,7 +43,10 @@
 
       <v-container>
         <v-text style="margin-left: 24px">House Photos:</v-text>
-        <v-card class="bg-grey-lighten-2 rounded-xl ma-8 pa-3" variant="outlined">
+        <v-card
+          class="bg-grey-lighten-2 rounded-xl ma-8 pa-3"
+          variant="outlined"
+        >
           <v-row dense class="pa-0 ma-0">
             <v-col
               v-for="(image, index) in images"
@@ -174,7 +195,10 @@
 
       <v-container>
         <v-text style="margin-left: 24px">Set price:</v-text>
-        <v-card class="bg-grey-lighten-2 rounded-xl ma-8 pa-1" variant="outlined">
+        <v-card
+          class="bg-grey-lighten-2 rounded-xl ma-8 pa-1"
+          variant="outlined"
+        >
           <v-container
             style="display: flex; flex-direction: column; align-items: center"
           >
@@ -196,7 +220,10 @@
 
       <v-container>
         <v-text style="margin-left: 24px">Your contact details:</v-text>
-        <v-card class="bg-grey-lighten-2 rounded-xl ma-8 pa-1" variant="outlined">
+        <v-card
+          class="bg-grey-lighten-2 rounded-xl ma-8 pa-1"
+          variant="outlined"
+        >
           <v-container
             style="display: flex; flex-direction: column; align-items: center"
           >
@@ -219,11 +246,7 @@
       </v-container>
 
       <v-container class="d-flex flex-column align-center">
-        <input
-          class="submit"
-          type="submit"
-          value="Sell"
-        />
+        <input class="submit" type="submit" value="Sell" />
       </v-container>
     </form>
 
@@ -312,7 +335,9 @@ export default {
         alert("House details submitted successfully!");
       } catch (error) {
         console.error("Error submitting house details:", error);
-        alert("There was an error submitting your house details. Please try again.");
+        alert(
+          "There was an error submitting your house details. Please try again."
+        );
       }
     },
   },
@@ -321,36 +346,36 @@ export default {
 
 <style scoped>
 .input {
-margin: 10px;
-padding: 25px;
-width: 250px;
-border-style: solid;
-border-radius: 25px;
-height: 50px;
-background-color: #f5f5f5cc;
+  margin: 10px;
+  padding: 25px;
+  width: 250px;
+  border-style: solid;
+  border-radius: 25px;
+  height: 50px;
+  background-color: #f5f5f5cc;
 }
 .submit {
-color: aliceblue;
-font-weight: bold;
-margin: 10px;
-width: 300px;
-border-style: solid;
-border-radius: 25px;
-height: 50px;
-background-color: #000000;
+  color: aliceblue;
+  font-weight: bold;
+  margin: 10px;
+  width: 300px;
+  border-style: solid;
+  border-radius: 25px;
+  height: 50px;
+  background-color: #000000;
 }
 .select {
-margin: 10px;
-padding: 13px; /* Adjust padding to fit height */
-width: 250px;
-border: 2px solid #747474; /* Ensure visibility of the border */
-border-radius: 25px;
-height: 50px; /* Ensure this matches the height of the padding and content */
-background-color: #f5f5f5cc;
-color: #747474;
-font-size: 16px; /* Adjust font size for better readability */
+  margin: 10px;
+  padding: 13px; /* Adjust padding to fit height */
+  width: 250px;
+  border: 2px solid #747474; /* Ensure visibility of the border */
+  border-radius: 25px;
+  height: 50px; /* Ensure this matches the height of the padding and content */
+  background-color: #f5f5f5cc;
+  color: #747474;
+  font-size: 16px; /* Adjust font size for better readability */
 }
 select option:disabled {
-display: none;
+  display: none;
 }
 </style>

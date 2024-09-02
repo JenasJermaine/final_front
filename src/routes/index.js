@@ -5,7 +5,6 @@ import Login from "./../components/Login.vue";
 import Sell from "./../components/Sell.vue";
 import Buy from "./../components/Buy.vue";
 import Myaccount from "./../components/Myaccount.vue";
-import Help from "./../components/Help.vue";
 import Accountsettings from "../components/Accountsettings.vue";
 import Agents from "../components/Agents.vue";
 import Selectedagent from "../components/Selectedagent.vue";
@@ -15,7 +14,7 @@ import House from "../components/House.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/Myaccount",
     name: "Myaccount",
     component: Myaccount,
   },
@@ -25,7 +24,7 @@ const routes = [
     component: Signup,
   },
   {
-    path: "/Login",
+    path: "/",
     name: "Login",
     component: Login,
   },
@@ -68,11 +67,6 @@ const routes = [
     path: "/Buy",
     name: "Buy",
     component: Buy,
-  },
-  {
-    path: "/Help",
-    name: "Help",
-    component: Help,
   },
 ];
 const router = createRouter({

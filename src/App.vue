@@ -1,9 +1,21 @@
 <template>
   <v-app>
-    <Navbar />
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+    <Navbar v-if="shouldShowNavbar" />
   </v-app>
 </template>
 
 <script setup>
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 import Navbar from "./components/Navbar.vue";
+
+const route = useRoute();
+
+// Don't show the navbar on the login page
+const shouldShowNavbar = computed(
+  () => route.name !== "Login" && route.name !== "Signup"
+);
 </script>

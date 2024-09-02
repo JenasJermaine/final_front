@@ -104,6 +104,7 @@
           type="submit"
         />
       </form>
+      <v-text>Already have an account?<a href="/">Log In</a></v-text>
     </v-card>
   </v-sheet>
 </template>

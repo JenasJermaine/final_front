@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12">
-        <v-text>Homes you have listed for sale:</v-text>
+        <v-text style="margin-left: 24px">Homes you have listed for sale:</v-text>
       </v-col>
     </v-row>
     <v-row>
@@ -25,11 +25,6 @@
             <div>House Type: {{ house.homeType }}</div>
             <div>Number of Bedrooms: {{ house.noBedrooms }}</div>
           </v-card-title>
-          <v-card-actions>
-            <v-container class="d-flex flex-row justify-start">
-              <v-btn block class="bg-black" rounded="xl">Manage</v-btn>
-            </v-container>
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
