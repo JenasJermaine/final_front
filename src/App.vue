@@ -14,7 +14,6 @@ import Navbar from "./components/Navbar.vue";
 
 const route = useRoute();
 
-// Don't show the navbar on the login page
 const shouldShowNavbar = computed(
   () => route.name !== "Login" && route.name !== "Signup"
 );
