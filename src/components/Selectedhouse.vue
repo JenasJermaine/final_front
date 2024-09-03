@@ -10,7 +10,6 @@
         free to contact the owner using the contact details provided below.
       </v-text>
     </v-card>
-    <!-- Owner's Contact Details -->
     <v-card
       class="rounded-xl pa-4 bg-grey-lighten-2"
       variant="outlined"
@@ -55,7 +54,6 @@
       </v-row>
     </v-card>
 
-    <!-- More about the House -->
     <v-card
       class="rounded-xl pa-4 mt-4 bg-grey-lighten-2"
       variant="outlined"
@@ -104,7 +102,6 @@
       </v-row>
     </v-card>
 
-    <!-- Pricing -->
     <v-card
       class="rounded-xl pa-4 mt-4 bg-grey-lighten-2"
       variant="outlined"
@@ -132,7 +129,6 @@
       </v-row>
     </v-card>
 
-    <!-- Footer Message -->
 
   </v-container>
 </template>

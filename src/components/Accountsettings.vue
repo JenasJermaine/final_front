@@ -39,39 +39,44 @@
     />
   </v-container>
   <v-container>
-    <v-card class="bg-grey-lighten-2 rounded-xl ma-8 pa-1" variant="outlined">
+      <v-card class="bg-grey-lighten-2 rounded-xl ma-8 pa-1" variant="outlined">
+        <v-container
+          style="display: flex; flex-direction: column; align-items: center"
+        >
+          <v-text style="margin-left: 24px">Change Username:</v-text>
+          <input
+            class="input"
+            v-model="userName"
+            type="text"
+            placeholder="User Name"
+          />
+          <v-text style="margin-left: 24px">Change Email:</v-text>
+          <input class="input" v-model="email" type="email" placeholder="Email" />
+        </v-container>
+      </v-card>
       <v-container
         style="display: flex; flex-direction: column; align-items: center"
       >
-        <v-text style="margin-left: 24px">Change Username:</v-text>
         <input
-          class="input"
-          name="userName"
-          type="text"
-          placeholder="User Name"
+          class="submit"
+          value="Apply Changes"
+          style="color: aliceblue"
+          type="button"
+          @click="updateProfile"
         />
-        <v-text style="margin-left: 24px">Change Email:</v-text>
-        <input class="input" name="email" type="email" placeholder="Email" />
       </v-container>
-    </v-card>
-    <v-container
-      style="display: flex; flex-direction: column; align-items: center"
-    >
-      <input
-        class="submit"
-        value="Apply Changes"
-        style="color: aliceblue"
-        type="submit"
-      />
     </v-container>
-  </v-container>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
       profilePic: null,
+      userName: '',
+      email: '',
     };
   },
   methods: {
@@ -82,6 +87,24 @@ export default {
       const file = event.target.files[0];
       if (file) {
         this.profilePic = URL.createObjectURL(file);
+      }
+    },
+    async updateProfile() {
+      const formData = new FormData();
+      formData.append('user_pic', this.$refs.fileInput.files[0]);
+      formData.append('name', this.userName);
+      formData.append('email', this.email);
+
+      try {
+        const response = await axios.put('http://127.0.0.1:8000/api/users', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
       }
     },
   },

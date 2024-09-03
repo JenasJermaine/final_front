@@ -286,7 +286,7 @@ export default {
         county: "",
         coordinates: "",
       },
-      images: [], // Array to store image URLs
+      images: [], 
     };
   },
   computed: {
@@ -305,7 +305,7 @@ export default {
       for (let i = 0; i < files.length; i++) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          this.images.push(e.target.result); // Push image URL to array
+          this.images.push(e.target.result); 
         };
         reader.readAsDataURL(files[i]);
       }
@@ -314,18 +314,15 @@ export default {
       try {
         const formData = new FormData();
 
-        // Append house details to formData
         for (const key in this.house) {
-          formData.append(key, this.house[key] || ""); // Ensure no empty fields
+          formData.append(key, this.house[key] || ""); 
         }
 
-        // Convert images from base64 to file and append to formData
         for (let i = 0; i < this.images.length; i++) {
           const blob = await fetch(this.images[i]).then((res) => res.blob());
           formData.append("photos[]", blob, `photo_${i}.jpg`);
         }
 
-        // Send formData to the backend
         await axios.post("http://127.0.0.1:8000/api/house", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -366,14 +363,14 @@ export default {
 }
 .select {
   margin: 10px;
-  padding: 13px; /* Adjust padding to fit height */
+  padding: 13px; 
   width: 250px;
-  border: 2px solid #747474; /* Ensure visibility of the border */
+  border: 2px solid #747474; 
   border-radius: 25px;
-  height: 50px; /* Ensure this matches the height of the padding and content */
+  height: 50px; 
   background-color: #f5f5f5cc;
   color: #747474;
-  font-size: 16px; /* Adjust font size for better readability */
+  font-size: 16px;
 }
 select option:disabled {
   display: none;

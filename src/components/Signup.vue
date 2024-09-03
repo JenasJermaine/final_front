@@ -154,6 +154,7 @@ export default {
           },
         })
         .then(({ data }) => {
+          this.$router.push({ name: "Myaccount" });
           console.log(data);
           alert("Saved successfully!");
         })

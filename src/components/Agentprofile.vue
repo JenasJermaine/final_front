@@ -179,14 +179,14 @@ export default {
 }
 .select {
   margin: 10px;
-  padding: 13px; /* Adjust padding to fit height */
+  padding: 13px; 
   width: 250px;
-  border: 2px solid #747474; /* Ensure visibility of the border */
+  border: 2px solid #747474; 
   border-radius: 25px;
-  height: 50px; /* Ensure this matches the height of the padding and content */
+  height: 50px; 
   background-color: #f5f5f5cc;
   color: #747474;
-  font-size: 16px; /* Adjust font size for better readability */
+  font-size: 16px;
 }
 select option:disabled {
   display: none;

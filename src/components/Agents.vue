@@ -44,14 +44,14 @@ import axios from "axios";
 export default {
   data() {
     return {
-      agents: [], // This will hold all the fetched agents
-      selectedCounty: "", // This will hold the selected county
+      agents: [], 
+      selectedCounty: "",
     };
   },
   computed: {
     filteredAgents() {
       if (this.selectedCounty === "") {
-        return this.agents; // Return all agents if no county is selected
+        return this.agents; 
       }
       return this.agents.filter(agent => agent.county === this.selectedCounty);
     },
@@ -78,14 +78,14 @@ export default {
 <style scoped>
 .select {
   margin: 10px;
-  padding: 13px; /* Adjust padding to fit height */
+  padding: 13px; 
   width: 250px;
-  border: 2px solid #747474; /* Ensure visibility of the border */
+  border: 2px solid #747474; 
   border-radius: 25px;
-  height: 50px; /* Ensure this matches the height of the padding and content */
+  height: 50px; 
   background-color: #f5f5f5cc;
   color: #747474;
-  font-size: 16px; /* Adjust font size for better readability */
+  font-size: 16px; 
 }
 select option:disabled {
   display: none;
